@@ -237,11 +237,46 @@
 % Blocks frame
 \section{Vehicle Basics}
 \begin{frame}{G-G Curve}
-    \begin{block}{What about lateral and longitudinal acceleration at the same time?}<+->
-        \onslide<+->{
-            Answer: look at a G-G curve for the car
-        }
+    \begin{columns}
+    \column{0.6\textwidth}
+    What about lateral and longitudinal acceleration at the same time?
+    \onslide<2->{ Answer: look at a G-G curve for the car}
+
+    \begin{block}{G-G Curve (or Traction Circle)}
+        \begin{itemize}
+            \item<3-> Plots \textbf{maximum \underline{steady-state} acceleration} that a vehicle can have in \textbf{any direction}
+            \item<4-> Outside circle = lost traction, locked wheels, etc
+            \item<5-> Inside circle = within limits of the vehicle
+            \item<6-> On the circle = driving at the edge
+        \end{itemize}
     \end{block}
+    \column{0.4\textwidth}
+    \includegraphics<2->[width=0.96\textwidth]{images/GG_Cars.png}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{G-G Curve: Misc Remarks}
+    \begin{columns}
+    \column{0.6\textwidth}
+    \begin{itemize}
+        \item<+-> Circles
+            \begin{itemize}
+                \item<+-> Shape of the curve is circular, due to tires
+                \item<+-> Tires can be assumed to have a maximum \textbf{force vector} which can be applied in \textbf{any direction}
+            \end{itemize}
+        \item<+-> Positive Acceleration shape
+            \begin{itemize}
+                \item<+-> Top part of curve isn't \textit{quite} circular
+                \onslide<+->{
+                    \item \textbf{Positive acceleration is nearly always limited by the power unit, not the tires}
+                    \item For (nearly) all cars, the power unit is the most severe acceleration limitation.
+                }
+            \end{itemize}
+    \end{itemize}
+
+    \column{0.4\textwidth}
+    \includegraphics[width=0.96\textwidth]{images/GG_Cars.png}
+    \end{columns}
 \end{frame}
 
 \end{document}
