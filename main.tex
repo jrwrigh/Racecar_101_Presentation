@@ -279,4 +279,50 @@
     \end{columns}
 \end{frame}
 
+\begin{frame}{Tires and Load Sensitivity}
+    \begin{block}{Newton's Law of Friction}<+->
+        \[F = N\mu\]
+        where \(F\) is the max static friction force, \(N\) is the normal force, and \(\mu\) is the static friction coefficient
+    \end{block}
+    \begin{itemize}
+        \onslide<+->{
+            \item Tires create force via \textbf{static friction}
+                \begin{itemize}
+                    \item A tire is in \textit{kinetic} friction if it's locked up or doing a burnout
+                \end{itemize}
+            }
+        \onslide<+->{
+            \item \(\mu\) is generally assumed to be constant
+                \begin{itemize}
+                    \item So \(F\) is linearly dependent on \(N\)
+                \end{itemize}
+            }
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Tires and Load Sensitivity}
+    \begin{columns}
+        \column{0.6\textwidth}
+        \begin{itemize}
+            \onslide<+->{
+                \item Tires \textbf{do not} have a constant \(\mu\):
+                    \[F = N \mu(N)\]
+                }
+            \item<+-> This phenomena is known as \textbf{Load Sensitivity}
+                \onslide<+->{
+                \item Generally, \(\mu\) and \(N\) are inversely proportional
+                    \begin{itemize}
+                        \item As \(\uparrow N\), \(\downarrow \mu\)
+                    \end{itemize}
+                }
+        \end{itemize}
+
+        \column{0.4\textwidth}
+        \includegraphics<1->[width=\textwidth]{images/TireLoadSensitivity.jpg}
+    \end{columns}
+    \begin{alertblock}{\textbf{Load Sensitivity is the singular most impactful thing in racecar design}}<+->
+        It alters practically every single decision
+    \end{alertblock}
+\end{frame}
+
 \end{document}
