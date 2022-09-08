@@ -1,5 +1,5 @@
 % Inbuilt themes in beamer
-\documentclass{beamer}
+\documentclass[aspectratio=169]{beamer}
 
 % Theme choice:
 \usetheme{CambridgeUS}
@@ -114,12 +114,13 @@
     \onslide<+->{
         Sometimes \(\uparrow\) mass + \(\uparrow\) force = \(\uparrow\) acceleration
     }
-    \begin{exampleblock}{Bigger Engine}<2->
+    \begin{exampleblock}{Bigger Engine}<+->
         Increases the total vehicle mass, but increases power output
 
         Depending on the ratio, can lead to better acceleration.
     \end{exampleblock}
 
+    \vspace{10pt}
     \onslide<+->{
         Sometimes \(\downarrow\) mass + \(\downarrow\) force = \(\uparrow\) acceleration
     }
@@ -165,28 +166,82 @@
         \begin{equation*}
             a_\mathrm{lat} = \frac{V^2}{r}
         \end{equation*}
+        where \(V\) is velocity, and \(r\) is the turning radius.
     }
 
+    \vspace{7pt}
     \onslide<+-> {
+    Plugging back into momentum balance yields:
         \begin{equation*}
              F = m\frac{V^2}{r}  \ \Rightarrow \ V = \sqrt{\frac{Fr}{m}}
         \end{equation*}
     }
 
+    \vspace{-7pt}
+    \onslide<+->{
+        Therefore given:
+        \begin{itemize}
+            \item a force, \(F\) (tire traction)
+            \item a mass, \(m\) (the car)
+            \item and a radius, \(r\) (the track/racing line)
+        \end{itemize}
+        there is a \textbf{limit to the maximum velocity}
+    }
+\end{frame}
+
+\begin{frame}{Lateral Acceleration cont.}
+    \onslide<+->{
+        How do we maximize the velocity? \(V = \sqrt{\frac{Fr}{m}}\)
+    }
+    \begin{enumerate}
+        \item<+-> Decrease mass \(m\)
+        \begin{itemize}
+            \onslide<+->{
+                \item Add lightness
+                \item Has compounding affect due to load transfer (discussed later)
+            }
+        \end{itemize}
+        \item<+-> Increase force \(F\)
+        \begin{itemize}
+            \item<+-> Increase the maximum force the tires can exert
+            \item<+-> How?
+                \onslide<+->{
+                    \begin{itemize}
+                        \item Aero downforce
+                        \item Different tires
+                        \item Suspension design, etc....
+                    \end{itemize}
+                }
+        \end{itemize}
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Quick Review}
+
+    \begin{block}{Higher Acceleration = Faster Car}
+
+    \end{block}
+
+    \begin{table}[]
+    \begin{tabular}{l|ll}
+                & Limited by                & How to make better? \\ \hline
+    Longitudinal & Force (Braking and Power) & Bigger Engine/Brakes \\ \cline{2-3}
+    Acceleration & Mass                      & Reduce it \\ \hline
+    Lateral      & Force (Tire Traction)     & Increase Grip \\ \cline{2-3}
+    Acceleration & Mass                      & Reduce it
+    \end{tabular}
+    \end{table}
+
 \end{frame}
 
 % Blocks frame
-\section{Blocks in Beamer}
-\begin{frame}{Blocks in Beamer}
-    \begin{block}{Standard Block}
-        This is a standard block.
+\section{Vehicle Basics}
+\begin{frame}{G-G Curve}
+    \begin{block}{What about lateral and longitudinal acceleration at the same time?}<+->
+        \onslide<+->{
+            Answer: look at a G-G curve for the car
+        }
     \end{block}
-    \begin{alertblock}{Alert Message}
-        This block presents alert message.
-    \end{alertblock}
-    \begin{exampleblock}{An example of typesetting tool}
-        Example: MS Word, \LaTeX{}
-    \end{exampleblock}
 \end{frame}
 
 \end{document}
