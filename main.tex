@@ -1,0 +1,192 @@
+% Inbuilt themes in beamer
+\documentclass{beamer}
+
+% Theme choice:
+\usetheme{CambridgeUS}
+\usecolortheme{orchid}
+\setbeamertemplate{navigation symbols}{} % Remove navigation buttons
+
+%% Get better (serif) math font
+\usefonttheme{professionalfonts}
+
+% Title page details:
+\title{Racecar 101}
+\author{James Wright}
+% \date{\today}
+% \logo{\large \LaTeX{}}
+
+\begin{document}
+
+% Title page frame
+\begin{frame}
+    \titlepage
+\end{frame}
+
+% Remove logo from the next slides
+\logo{}
+
+% Outline frame
+\begin{frame}{Outline}
+    \tableofcontents
+\end{frame}
+
+\section{What makes a car fast?}
+
+\begin{frame}
+    \begin{alertblock}{Note}
+        This first part is a very simplified breakdown
+        \begin{itemize}
+            \item It's not the most accurate
+            \item It's not to insult anyone's intelligence
+        \end{itemize}
+        It's simply to not distract from the things that can be easily
+        forgotten or muddied.
+    \end{alertblock}
+\end{frame}
+
+\begin{frame}{What makes a car go fast?}
+
+    \onslide<+-> {
+        \begin{equation*}
+            \mathrm{Time} = \frac{\mathrm{Distance}}{\mathrm{Velocity}}
+        \end{equation*}
+    }
+
+    \begin{itemize}
+        \onslide<+->{\item To lower time, we need to increase velocity\footnote{Assuming distance is constant}}
+        \item<+-> All motorsports have velocity changes during a race
+            \begin{itemize}
+                \item Excluding top-speed records of course
+            \end{itemize}
+        \item<+-> Change in velocity is... \onslide<+->{\textbf{Acceleration}}
+        \item<+-> To maximize velocity, you must maximize acceleration
+            \begin{itemize}
+                \item ie. Whatever changes in velocity you make, do them as quickly as possible
+            \end{itemize}
+        \begin{block}{}<+->
+            To make a car \textbf{faster}, you must make the car \textbf{accelerate more}
+        \end{block}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}{What famous equation involves acceleration?}
+    \onslide<2->{
+        \center Newton's 2nd law!
+        \begin{equation*}
+            F=ma
+        \end{equation*}
+    }
+
+    \onslide<3->{
+        We care about acceleration, so rearange:
+        \begin{equation*}
+            a = \frac{F}{m}
+        \end{equation*}
+    }
+\end{frame}
+
+\begin{frame}{How do we maximize acceleration?}
+    \begin{equation*}
+        a = \frac{F}{m}
+    \end{equation*}
+
+    \begin{block}{Decrease Mass}<+->
+        \begin{itemize}
+            \item Make things lighter
+        \end{itemize}
+    \end{block}
+
+    \begin{block}{Increase Force}<+->
+        \begin{itemize}
+            \item<+-> Increase the force the tires can apply to the ground
+            \item<+-> Increase power output
+            \item<+-> Increase braking torque
+        \end{itemize}
+    \end{block}
+
+    \begin{alertblock}{}<+->
+        The latter two hold \textbf{only if the tires can transfer the torque}
+    \end{alertblock}
+\end{frame}
+
+\begin{frame}{Balancing \(\uparrow\)Force vs \(\downarrow\)Mass}
+    \onslide<+->{
+        Sometimes \(\uparrow\) mass + \(\uparrow\) force = \(\uparrow\) acceleration
+    }
+    \begin{exampleblock}{Bigger Engine}<2->
+        Increases the total vehicle mass, but increases power output
+
+        Depending on the ratio, can lead to better acceleration.
+    \end{exampleblock}
+
+    \onslide<+->{
+        Sometimes \(\downarrow\) mass + \(\downarrow\) force = \(\uparrow\) acceleration
+    }
+    \begin{exampleblock}{Smaller/Narrower Tires}<+->
+        Decreases total vehicle mass, but decreases total acceleration potential
+
+        Also reduces unsprung mass (improves vehcile handling and response)
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Longitudinal Acceleration}
+    \onslide<+->{
+        Simplest acceleration to model:
+        \begin{equation*}
+            a = \frac{F}{m}
+        \end{equation*}
+
+        Tire traction capacity sets upper limit of the acceleration.
+    }
+
+    \onslide<+->{Divided into 2 components:}
+    \begin{enumerate}
+        \item<+-> Braking (negative)
+            \begin{alertblock}{Braking should \textbf{ALWAYS} be limited by tire traction}<+->
+                \begin{itemize}
+                    \onslide<+->{
+                        \item This is as much for safety as it is performance
+                        \item Ensure that care is capable of absolute maximum braking acceleration
+                    }
+                \end{itemize}
+            \end{alertblock}
+        \item<+-> Power (positive)
+        \begin{itemize}
+            \item<+-> Almost always limited by the power unit (ICE, electric motor, rubber band windup, etc.)
+        \end{itemize}
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Lateral Acceleration}
+
+    \onslide<+->{
+        Turning causes \textit{Lateral Acceleration}, which is not a change in speed, but of direction:
+        \begin{equation*}
+            a_\mathrm{lat} = \frac{V^2}{r}
+        \end{equation*}
+    }
+
+    \onslide<+-> {
+        \begin{equation*}
+             F = m\frac{V^2}{r}  \ \Rightarrow \ V = \sqrt{\frac{Fr}{m}}
+        \end{equation*}
+    }
+
+\end{frame}
+
+% Blocks frame
+\section{Blocks in Beamer}
+\begin{frame}{Blocks in Beamer}
+    \begin{block}{Standard Block}
+        This is a standard block.
+    \end{block}
+    \begin{alertblock}{Alert Message}
+        This block presents alert message.
+    \end{alertblock}
+    \begin{exampleblock}{An example of typesetting tool}
+        Example: MS Word, \LaTeX{}
+    \end{exampleblock}
+\end{frame}
+
+\end{document}
