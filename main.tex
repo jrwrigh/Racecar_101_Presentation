@@ -365,6 +365,8 @@ cross/.default={1pt}}
 \end{frame}
 
 \begin{frame}{Load Transfer}
+    \begin{columns}
+        \column{0.5\textwidth}
         \begin{block}{Load Transfer}<+->
             \begin{itemize}
                 \item<+-> Weight of vehicle shifting due to acceleration
@@ -375,6 +377,9 @@ cross/.default={1pt}}
         \begin{itemize}
             \item<+-> \textbf{Reduces global vehicle grip due to load sensitivity}
         \end{itemize}
+        \column{0.5\textwidth}
+        \includegraphics<3->[width=\textwidth]{images/LoadTransferDiagram.jpg}
+    \end{columns}
 \end{frame}
 
 \begin{frame}{Load Transfer Example}
@@ -454,30 +459,19 @@ cross/.default={1pt}}
 % How does a car turn?
 % Answer: It uses the tires to generate a side-force to redirect the car and a torque to rotate the car
 
-\begin{frame}{Three Tenants of Racecar Building}
-    \textit{In order of importance:}
-    \begin{enumerate}
-        \item<+-> Make it Lighter
-            \begin{itemize}
-                \item<.-> Improves acceleration, load transfer, responsiveness, etc.
-            \end{itemize}
-        \item<+-> Make it Lower
-            \begin{itemize}
-                \item<.-> Lowering a component lowers CG \(\Rightarrow\) reduces load transfer
-            \end{itemize}
-        \item<+-> Make it more Central
-            \begin{itemize}
-                \item<.-> When turning, car has to physically rotate:
-                    \onslide<.->{
-                        \[T=I\alpha\]
-                        where \(T\) is torque, \(I\) is rotational inertia, and \(\alpha\) is angular acceleration
-                    }
-                \item<.-> Reducing inertia is similar to reducing mass
-            \end{itemize}
-    \end{enumerate}
-    \begin{alertblock}{\textbf{The car that is lighter, has a lower CG, or has a lower inertia will be faster}}<+->
-    \end{alertblock}
-
+\section{Anatomy of a Corner}
+\begin{frame}{How does a car turn?}
+    \onslide<+->{}
+    \begin{block}{}<+->
+        The car uses the tires to generate a \textbf{lateral force to redirect the car} and a \textbf{torque to rotate the car}
+    \end{block}
+    \onslide<+->{
+        Corners represent a change in two different things:
+        \begin{enumerate}
+            \item<+-> Change in \textbf{translation}
+            \item<+-> Change in \textbf{orientation}
+        \end{enumerate}
+    }
 \end{frame}
 
 \begin{frame}{Vehicle Balance}
@@ -598,6 +592,33 @@ cross/.default={1pt}}
         \item<+-> A car can dynamically change between all three states
         \item<+-> Changes occur due to differences in load transfer, suspension magic, and through dynamic movement
     \end{itemize}
+\end{frame}
+
+\section{Three Tenants of Racecar Design}
+\begin{frame}{Three Tenants of Racecar Design}
+    \textit{In order of importance:}
+    \begin{enumerate}
+        \item<+-> Make it Lighter
+            \begin{itemize}
+                \item<.-> Improves acceleration, load transfer, responsiveness, etc.
+            \end{itemize}
+        \item<+-> Make it Lower
+            \begin{itemize}
+                \item<.-> Lowering a component lowers CG \(\Rightarrow\) reduces load transfer
+            \end{itemize}
+        \item<+-> Make it more Central
+            \begin{itemize}
+                \item<.-> When turning, car has to physically rotate:
+                    \onslide<.->{
+                        \[T=I\alpha\]
+                        where \(T\) is torque, \(I\) is rotational inertia, and \(\alpha\) is angular acceleration
+                    }
+                \item<.-> Reducing inertia is similar to reducing mass
+            \end{itemize}
+    \end{enumerate}
+    \begin{alertblock}{\textbf{The car that is lighter, has a lower CG, or has a lower inertia will be faster}}<+->
+    \end{alertblock}
+
 \end{frame}
 
 
