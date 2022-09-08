@@ -132,6 +132,7 @@ cross/.default={1pt}}
 \end{frame}
 
 \begin{frame}{Balancing \(\uparrow\)Force vs \(\downarrow\)Mass}
+    \onslide<+->{}
     \onslide<+->{
         Sometimes \(\uparrow\) mass + \(\uparrow\) force = \(\uparrow\) acceleration
     }
@@ -169,7 +170,7 @@ cross/.default={1pt}}
                 \begin{itemize}
                     \onslide<+->{
                         \item This is as much for safety as it is performance
-                        \item Ensure that care is capable of absolute maximum braking acceleration
+                        \item Ensure that car is capable of absolute maximum braking acceleration
                     }
                 \end{itemize}
             \end{alertblock}
@@ -297,6 +298,8 @@ cross/.default={1pt}}
     \includegraphics[width=0.96\textwidth]{images/GG_Cars.png}
     \end{columns}
 \end{frame}
+
+%TODO Go over trail braking from a G-G curve's perspective
 
 \begin{frame}{How do tires generate force?}
     \onslide<2->{
@@ -437,6 +440,10 @@ cross/.default={1pt}}
     \end{columns}
 \end{frame}
 
+%TODO Add "Anatomy of a Corner"
+% How does a car turn?
+% Answer: It uses the tires to generate a side-force to redirect the car and a torque to rotate the car
+
 \begin{frame}{Three Tenants of Racecar Building}
     \textit{In order of importance:}
     \begin{enumerate}
@@ -446,7 +453,7 @@ cross/.default={1pt}}
             \end{itemize}
         \item<+-> Make it Lower
             \begin{itemize}
-                \item<.-> Lowering a component lowers DG \(\Rightarrow\) reduces load transfer
+                \item<.-> Lowering a component lowers CG \(\Rightarrow\) reduces load transfer
             \end{itemize}
         \item<+-> Make it more Central
             \begin{itemize}
@@ -508,9 +515,9 @@ cross/.default={1pt}}
         \draw[line width=2.5pt, blue, -stealth] (cg) -- (fr);
         \draw[line width=2.5pt, orange, -stealth] (fr) -- ++(275:4.3);
         \draw[line width=2.5pt, blue, -stealth] (cg) -- (rr);
-        \draw[line width=2.5pt, orange, -stealth] (rr) -- ++(260:4.3);
+        \draw[line width=2.5pt, orange, -stealth] (rr) -- ++(260:5.3);
         \draw[line width=2.5pt, blue, -stealth] (cg) -- (rl);
-        \draw[line width=2.5pt, orange, -stealth] (rl) -- ++(260:1.3);
+        \draw[line width=2.5pt, orange, -stealth] (rl) -- ++(260:1.9);
 
     \end{scope}
 
@@ -565,6 +572,25 @@ cross/.default={1pt}}
 
     \end{tikzpicture}
 \end{frame}
+
+\begin{frame}{Oversteer vs Understeer}
+    \begin{block}{Neutral Steer}<+->
+        Moments balance out
+    \end{block}
+    \begin{block}{Under Steer}<+->
+        Unbalance moments cause under-rotation
+    \end{block}
+    \begin{block}{Over Steer}<+->
+        Unbalance moments cause over-rotation
+    \end{block}
+
+    \begin{itemize}
+        \item<+-> A car can dynamically change between all three states
+        \item<+-> Changes occur due to differences in load transfer, suspension magic, and through dynamic movement
+    \end{itemize}
+\end{frame}
+
+
 \begin{frame}{Questions}
 
 \end{frame}
