@@ -9,6 +9,15 @@
 %% Get better (serif) math font
 \usefonttheme{professionalfonts}
 
+\usepackage{tikz}
+\usetikzlibrary{tikzmark}
+\usetikzlibrary{shapes, arrows, calc, math, positioning, shapes.misc}
+\tikzstyle{block} = [rectangle, draw, text width = 40mm, text centered, rounded corners, minimum height = 1.5\baselineskip]
+\tikzstyle{line} = [draw, -latex']
+\tikzset{cross/.style={cross out, draw=black, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer sep=0pt},
+%default radius will be 1pt. 
+cross/.default={1pt}}
+
 % Title page details:
 \title{Racecar 101}
 \author{James Wright}
@@ -176,9 +185,7 @@
              F = m\frac{V^2}{r}  \ \Rightarrow \ V = \sqrt{\frac{Fr}{m}}
         \end{equation*}
     }
-
-    \vspace{-7pt}
-    \onslide<+->{
+    \onslide<+->{%
         Therefore given:
         \begin{itemize}
             \item a force, \(F\) (tire traction)
@@ -309,7 +316,7 @@
 
 \begin{frame}{Tires and Load Sensitivity}
     \begin{columns}
-        \column{0.6\textwidth}
+        \column{0.65\textwidth}
         \begin{itemize}
             \onslide<+->{
                 \item Tires \textbf{do not} have a constant \(\mu\):
@@ -324,7 +331,7 @@
                 }
         \end{itemize}
 
-        \column{0.4\textwidth}
+        \column{0.35\textwidth}
         \includegraphics<1->[width=\textwidth]{images/TireLoadSensitivity.jpg}
     \end{columns}
     \begin{alertblock}{\textbf{Load Sensitivity is the singular most impactful thing in racecar design}}<+->
@@ -332,4 +339,124 @@
     \end{alertblock}
 \end{frame}
 
+\begin{frame}{Load Transfer}
+        \begin{block}{Load Transfer}<+->
+            \begin{itemize}
+                \item<+-> Weight of vehicle shifting due to acceleration
+                \item<+-> Caused by torque of tires against CG, \textit{not by body roll}
+            \end{itemize}
+        \end{block}
+
+        \begin{itemize}
+            \item<+-> \textbf{Reduces global vehicle grip due to load sensitivity}
+        \end{itemize}
+\end{frame}
+
+\begin{frame}{Load Transfer Example}
+    \begin{columns}
+        \column{0.6\textwidth}
+
+        \begin{exampleblock}{No load transfer vs 50\% load transfer}<1->
+            Assume 4.5kN of static vertical load on each tire.
+            \onslide<2->{
+                Static traction:
+                \[F(4.5\mathrm{kN}) = 5.55\mathrm{kN} \ \Rightarrow \ F^\mathrm{static}_\mathrm{tot} = 5.55 \cdot 4 = 22.2\mathrm{kN}\]
+            }
+            \onslide<3->{
+                With load transfer:
+                \begin{equation*}
+                    \begin{aligned}
+                        F(0.5 \cdot 4.5\mathrm{kN} = 2.25\mathrm{kN}) &= 2.7\mathrm{kN} \\
+                        F(1.5 \cdot 4.5\mathrm{kN} = 6.75\mathrm{kN}) &= 7.5\mathrm{kN} \\
+                        \onslide<4->{
+                        \therefore F^\mathrm{transfer}_\mathrm{tot} = 2(2.7\mathrm{kN} &+ 7.5\mathrm{kN}) = 20.4\mathrm{kN}
+                    }
+                    \end{aligned}
+                \end{equation*}
+            }
+            \onslide<5->{
+                \textbf{8\% Drop in total traction!}
+            }
+        \end{exampleblock}
+
+        \column{0.4\textwidth}
+    \begin{tikzpicture}
+
+    % Include the image in a node
+    \node [
+        above right,
+        inner sep=0] (image) at (0,0) {\includegraphics[width=\textwidth]{images/TireLoadSensitivity.jpg}};
+
+    % Create scope with normalized axes
+    \begin{scope}[
+    x={($0.1*(image.south east)$)},
+    y={($0.1*(image.north west)$)}]
+
+    % % Grid
+    %     \draw[lightgray,step=1] (image.south west) grid (image.north east);
+    %
+    % % Axes' labels
+    %     \foreach \x in {0,1,...,10} { \node [below] at (\x,0) {\x}; }
+    %     \foreach \y in {0,1,...,10} { \node [left] at (0,\y) {\y};}
+    %
+        % \coordinate (midx) at ($(image) + (5.25,1)$);
+        \coordinate (midx) at (5.25,1);
+        \coordinate (midc) at (5.25,6.4);
+        \coordinate (midy) at (1.2,6.4);
+
+        \coordinate (lowx) at (2.65,1);
+        \coordinate (lowc) at (2.65,3.1);
+        \coordinate (lowy) at (1.2,3.1);
+
+        \coordinate (highx) at (7.9,1);
+        \coordinate (highc) at (7.9,8.76);
+        \coordinate (highy) at (1.2,8.76);
+
+        \coordinate (totaly) at (1.2,5.8);
+
+        \draw<2->[line width=1.5pt, blue] (midx)--(midc)--(midy);
+        \draw<3->[dashed,line width=1.5pt, red] (lowx)--(lowc)--(lowy);
+        \draw<3->[dashed,line width=1.5pt, red] (highx)--(highc)--(highy);
+        \draw<4-> (totaly) node[cross=5pt,red, line width=1.5pt]{};
+
+    \end{scope}
+
+    \end{tikzpicture}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Three Tenants of Racecar Building}
+    \textit{In order of importance:}
+    \begin{enumerate}
+        \item<+-> Make it Lighter
+            \begin{itemize}
+                \item<.-> Improves acceleration, load transfer, responsiveness, etc.
+            \end{itemize}
+        \item<+-> Make it Lower
+            \begin{itemize}
+                \item<.-> Lowering a component lowers DG \(\Rightarrow\) reduces load transfer
+            \end{itemize}
+        \item<+-> Make it more Central
+            \begin{itemize}
+                \item<.-> When turning, car has to physically rotate:
+                    \onslide<.->{
+                        \[T=I\alpha\]
+                        where \(T\) is torque, \(I\) is rotational inertia, and \(\alpha\) is angular acceleration
+                    }
+                \item<.-> Reducing inertia is similar to reducing mass
+            \end{itemize}
+    \end{enumerate}
+    \begin{alertblock}{\textbf{The car that is lighter, has a lower CG, or has a lower inertia will be faster}}<+->
+    \end{alertblock}
+
+\end{frame}
+
+% \begin{frame}{Vehicle Balance}
+%     \center
+%     Why do Formula 1 and Indy cars have larger tires at the rear than the front?
+% \end{frame}
+
+\begin{frame}{Questions}
+
+\end{frame}
 \end{document}
