@@ -6,6 +6,16 @@
 \usecolortheme{orchid}
 \setbeamertemplate{navigation symbols}{} % Remove navigation buttons
 
+% Auto make section slides
+% from https://statisticaloddsandends.wordpress.com/2019/02/18/beamer-inserting-section-slides-before-each-section/
+\AtBeginSection[]
+{
+    \begin{frame}
+        \frametitle{Table of Contents}
+        \tableofcontents[currentsection]
+    \end{frame}
+}
+
 %% Get better (serif) math font
 \usefonttheme{professionalfonts}
 
