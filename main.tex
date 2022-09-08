@@ -459,19 +459,65 @@ cross/.default={1pt}}
 % How does a car turn?
 % Answer: It uses the tires to generate a side-force to redirect the car and a torque to rotate the car
 
-\section{Anatomy of a Corner}
+\section{Vehicle Balance and Control}
 \begin{frame}{How does a car turn?}
     \onslide<+->{}
     \begin{block}{}<+->
         The car uses the tires to generate a \textbf{lateral force to redirect the car} and a \textbf{torque to rotate the car}
     \end{block}
-    \onslide<+->{
-        Corners represent a change in two different things:
-        \begin{enumerate}
-            \item<+-> Change in \textbf{translation}
-            \item<+-> Change in \textbf{orientation}
-        \end{enumerate}
-    }
+    \onslide<+->{Corners represent a change in two different things:}
+    \begin{enumerate}
+        \item<+-> Change in \textbf{position}
+            \begin{itemize}
+                \item<.-> The path the car takes on track
+                \item<.-> Governed by \underline{Conservation of (linear) Momentum} (\(F=ma\))
+            \end{itemize}
+        \item<+-> Change in \textbf{orientation}
+            \begin{itemize}
+                \item<.-> The direction of the car along the taken path
+                \item<.-> Governed by \underline{Conservation of \textit{Angular} Momentum} (\(M=I\alpha\))
+            \end{itemize}
+    \end{enumerate}
+
+    \begin{itemize}
+        \item<+-> Previous topics primarily cover vehicle dynamics for translation
+        \item<+-> Now we'll cover orientation/rotation
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Angular Momentum}
+    \begin{block}{Conservation of Angular Momentum}<+->
+        \[M=I\alpha\]
+        where \(M\) is the moments (torque) acted on the car, \(I\) is the moment of inertia, and \(\alpha\) is the angular acceleration
+    \end{block}
+    \begin{itemize}
+        \item<+-> Analogous to conservation of linear momentum:
+            \onslide<.->{
+                \begin{table}[]
+                    \begin{tabular}{r|cc}
+                                            & Linear & Angular     \\ \hline
+                        External Action               & \(F\)  & \(M\)       \\
+                        Object's resistance to change & \(m\)  & \(I\)       \\
+                        Rate of Change                & \(a\)  & \(\alpha \) \\
+                        State Variable                & \(V\)  & \(\omega\) 
+                    \end{tabular}
+                \end{table}
+            }
+        \item<+-> Moments can be calculated from a force \(F\) and distance \(r \) via \(M=F\times r\)
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}{Angular Acceleration for Racecars}
+    \begin{itemize}
+        \item<+-> Reminder: Angular momenum governs \textbf{car orientation}
+        \item<+-> Angular velocity \(\omega\) has no direct impact on lap time
+        \item<+-> Therefore, we \textit{do not} want to maximize angular acceleration.
+        \item<+-> We only want to \textbf{control it such that we can maximize linear acceleration}.
+    \end{itemize}
+    \begin{alertblock}{This is where balance and control comes into play}<+->
+        Ensure that the car is oriented such that we can achieve maximum linear acceleration
+    \end{alertblock}
 \end{frame}
 
 \begin{frame}{Vehicle Balance}
@@ -579,13 +625,13 @@ cross/.default={1pt}}
 
 \begin{frame}{Oversteer vs Understeer}
     \begin{block}{Neutral Steer}<+->
-        Moments balance out
+        Moments in perfect \textit{imbalance}
     \end{block}
     \begin{block}{Under Steer}<+->
-        Unbalance moments cause under-rotation
+        Unbalanced moments cause under-rotation
     \end{block}
     \begin{block}{Over Steer}<+->
-        Unbalance moments cause over-rotation
+        Unbalanced moments cause over-rotation
     \end{block}
 
     \begin{itemize}
@@ -608,18 +654,30 @@ cross/.default={1pt}}
             \end{itemize}
         \item<+-> Make it more Central
             \begin{itemize}
-                \item<.-> When turning, car has to physically rotate:
-                    \onslide<.->{
-                        \[T=I\alpha\]
-                        where \(T\) is torque, \(I\) is rotational inertia, and \(\alpha\) is angular acceleration
-                    }
-                \item<.-> Reducing inertia is similar to reducing mass
+                \item<.-> Reduces \(I\) \(\Rightarrow\) makes the car more responsive
             \end{itemize}
     \end{enumerate}
     \begin{alertblock}{\textbf{The car that is lighter, has a lower CG, or has a lower inertia will be faster}}<+->
     \end{alertblock}
 
 \end{frame}
+
+% \begin{frame}{Recommended Resources}
+%
+%     \begin{itemize}
+%         \item \textit{Tune to Win} by Carroll Smith
+%             \begin{itemize}
+%                 \item Vehicle dynamics for normal people
+%                 \item Covers the gamut of racecar design topics (aero, cooling, VD, powertrain, etc.)
+%             \end{itemize}
+%         \item \textit{Racecar Vehicle Dynamics} by Milliken \& Milliken
+%             \begin{itemize}
+%                 \item "The Bible"
+%                 \item It's a textbook, but incredibly useful
+%                 \item More specialized to vehicle dynamics (shocking given the name)
+%             \end{itemize}
+%     \end{itemize}
+% \end{frame}
 
 
 \begin{frame}{Questions}
