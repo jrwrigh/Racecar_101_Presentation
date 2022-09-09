@@ -61,8 +61,6 @@ cross/.default={1pt}}
     \tableofcontents
 \end{frame}
 
-\section{What makes a car fast?}
-
 \begin{frame}
     \begin{alertblock}{Note}
         This first part is a very simplified breakdown
@@ -73,7 +71,11 @@ cross/.default={1pt}}
         It's simply to not distract from the things that can be easily
         forgotten or muddied.
     \end{alertblock}
+
+    Also, I like audience participation. Ask questions. I'll be asking y'all questions.
 \end{frame}
+
+\section{What makes a car fast?}
 
 \begin{frame}{What makes a car go fast?}
 
@@ -553,8 +555,6 @@ cross/.default={1pt}}
         \coordinate (rr) at (8.1,8.5);
         \coordinate (rl) at (8.1,1.5);
 
-        \path (cg) pic {cg=8pt};
-
         \draw (fl) node[cross=8pt,red, line width=1.5pt]{};
         \draw (fr) node[cross=8pt,red, line width=1.5pt]{};
         \draw (rr) node[cross=8pt,red, line width=1.5pt]{};
@@ -569,6 +569,7 @@ cross/.default={1pt}}
         \draw[line width=2.5pt, blue, -stealth] (cg) -- (rl);
         \draw[line width=2.5pt, orange, -stealth] (rl) -- ++(260:1.9);
 
+        \path (cg) pic {cg=8pt};
     \end{scope}
 
     \end{tikzpicture}
@@ -602,8 +603,6 @@ cross/.default={1pt}}
         \coordinate (rr) at (8.5,9);
         \coordinate (rl) at (8.5,1);
 
-        \path (cg) pic {cg=8pt};
-
         \draw (fl) node[cross=8pt,red, line width=1.5pt]{};
         \draw (fr) node[cross=8pt,red, line width=1.5pt]{};
         \draw (rr) node[cross=8pt,red, line width=1.5pt]{};
@@ -618,6 +617,7 @@ cross/.default={1pt}}
         \draw[line width=2.5pt, blue, -stealth] (cg) -- (rl);
         \draw[line width=2.5pt, orange, -stealth] (rl) -- ++(260:1.9);
 
+        \path (cg) pic {cg=8pt};
     \end{scope}
 
     \end{tikzpicture}
@@ -635,6 +635,7 @@ cross/.default={1pt}}
     \end{block}
 
     \begin{itemize}
+        \item<+-> The latter two prevent achieving maximum linear acceleration 
         \item<+-> A car can dynamically change between all three states
         \item<+-> Changes occur due to differences in load transfer, suspension magic, and through dynamic movement
     \end{itemize}
@@ -679,8 +680,7 @@ cross/.default={1pt}}
     \end{itemize}
 \end{frame}
 
-
 \begin{frame}{Questions}
-
 \end{frame}
+
 \end{document}
